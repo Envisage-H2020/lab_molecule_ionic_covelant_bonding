@@ -1,0 +1,127 @@
+body{
+	font-family: arial;
+	margin: 0px; /* for IE6 / IE7 */
+}
+
+/* drag container*/
+#drag{
+	/* make drag div visible */
+	/* border: 2px solid lime; */
+	
+	/* I had problems with FF3 and this settings for DIV id="drag" */	
+	/*
+	margin: auto;
+  	display: table;
+    table-layout: auto;
+    */
+}
+
+#table1{
+	display: none;
+}
+
+/* drag objects (DIV inside table cells) */
+.drag{
+	cursor: move;
+	margin: auto;
+	z-index: 10;
+	background-color: white;
+	/* text-align: center; */
+	font-size: 10pt; /* needed for cloned object */
+	/*
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	*/
+	/* without width, IE6/7 will not apply filter/opacity to the element ?! */
+	/* IE needs element layout */
+	width: 40px;
+	height: 40px;
+	line-height: 25px;
+	/* round corners */
+	border-radius: 4px; /* Opera, Chrome */
+	-moz-border-radius: 4px; /* FF */
+}
+
+/* tables */
+div#drag table{
+	/* background-color: #eee;*/
+	background-color: white;
+	border-collapse: collapse;
+	margin: 5px;
+}
+
+/* table cells */
+div#drag td{
+	/* min-height: 66px; */
+	border: 1px solid #90f6da;
+	text-align: center;
+	font-size: 12pt;
+	padding: 2px;
+	max-width: 66px;
+}
+
+#itemDetails {
+	height: 32px;
+	/* border: 1px solid #90f6da; */.
+	text-align: center;
+	font-size: 10pt;
+	padding: 0px;
+}
+
+
+/* blank cells (to create gap between left column and message row) */
+.blank {
+	background-color: white;
+}
+
+
+/* team cells */
+.teamdrop{
+	background-color: red;
+}
+
+.moleculeStop{
+	background-color: white;
+}
+.moleculeAtom{
+	background-color: #19f1b5;
+}
+
+
+.moleculeAtom2{
+	background-color: #eee;
+}
+
+.moleculeBond{
+	background-color: #19f1b5;
+}
+
+.trash {
+	background-color: #0fad81;
+}
+
+.message {
+	background-color: white;
+}
+
+.teampot{
+	background-color: #eee;
+}
+
+div#dropspace table{
+	background-color: white;
+	border-collapse: collapse;
+	margin: 5px;
+	/* max-width: 600px; */
+}
+
+
+
+/* left column and corners in main table */
+.dark{
+	background-color: #e0e0e0;
+}
+p {
+	margin-left: 10px;
+}
+

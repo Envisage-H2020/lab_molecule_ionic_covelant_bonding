@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-T9GH2WG');</script>
+		<!-- End Google Tag Manager -->
+		<script>
+		  dataLayer = [];
+		  dataLayer.push({
+	    'event': 'launch', 'goedle': {'app_version': 'v4'}});
+		</script>
+		<link rel="stylesheet" href="styles/style5.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
+
+		<script type="text/javascript" src="scripts/redips-drag-min.js"></script>
+		<script type="text/javascript" src="scripts/scriptc12.js"></script>
+		<script type="text/javascript">
+			preLoadIMG();
+		</script>
+		<title>Molecule Construction v4</title>
+	</head>
+	<body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9GH2WG"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<script>
+		  dataLayer = [];
+		  dataLayer.push({
+	    'event': 'start.lab', 'goedle': {'app_version': 'v4'}});
+		</script>
+		 <!-- Google Analytics -->
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-89555283-2', 'auto');
+        ga('send', 'pageview');
+        </script>
+        <!-- End Google Analytics -->
+		<script>
+		  
+		</script>
+		<div id="loadpage">
+			<p align="left" style="font-size: large;">
+				<img src="images/page-loader.gif"><br>
+
+				<B>Loading ... ... Please wait!</B>
+			</p>
+		</div>
+		<div id="drag">
+			<div id="topArea">
+				<table id='table1'>		
+					<colgroup>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+						<col width="55"/>
+					</colgroup>	
+					<tr height='55' id="tRow1">
+						<td colspan='6' class='mark'>Select a molecule from the list.<br>Use the buttons to create it's formula</td>
+						<td colspan='3' class='mark'>
+							<form>
+								<select id='moleculeSelect' name='moleculeSelect' onchange="changeMolecule(); dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">
+									<option value='1'>Hydrogen Chloride</option>
+									<option value='2'>Potassium Bromide</option>
+									<option value='3'>Water</option>
+									<option value='4'>Sodium Fluoride</option>
+									<option value='5'>Methane</option>
+									<option value='6'>Calcium Chloride</option>
+									<option value='7'>Sodium Chloride</option>
+									<option value='8'>Tetrafluoromethane</option>
+								</select>
+							</form>
+						<td colspan='3' class='mark'><button onclick="showDiagram(); dataLayer.push({'event': 'help.periodic_table' });">Periodic Table</button></td>
+					</tr>
+					<tr height='55' id="tRow2">
+						<td colspan='12' class='mark'>Each disk represents an electron. The color indicates to which atom each electron belongs to. Drag electrons from the selection below to the green positions on the grid. You can move electrons, use trash to remove them completely, or 'Reset' to clear the grid and start again.</td>
+					</tr>
+					<tr height='55' id="tRow3">
+						<td colspan='1'><img src='bonding/c4-2.png' onMouseOver='this.src="bonding/c4-2-rC.png"' onMouseOut='this.src="bonding/c4-2.png"' onclick='addToName(1); dataLayer.push({"event": "add.bonding", "event_value": "2", "event_id": "number"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-3.png' onMouseOver='this.src="bonding/c4-3-rC.png"' onMouseOut='this.src="bonding/c4-3.png"' onclick='addToName(2); dataLayer.push({"event": "add.bonding", "event_value": "3", "event_id": "number"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-4.png' onMouseOver='this.src="bonding/c4-4-rC.png"' onMouseOut='this.src="bonding/c4-4.png"' onclick='addToName(3); dataLayer.push({"event": "add.bonding", "event_value": "4", "event_id": "number"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Br.png' onMouseOver='this.src="bonding/c4-Br-rC.png"' onMouseOut='this.src="bonding/c4-Br.png"' onclick='addToName(4); dataLayer.push({"event": "add.bonding", "event_value": "Br", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Ca.png' onMouseOver='this.src="bonding/c4-Ca-rC.png"' onMouseOut='this.src="bonding/c4-Ca.png"' onclick='addToName(5); dataLayer.push({"event": "add.bonding", "event_value": "Ca", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-C.png' onMouseOver='this.src="bonding/c4-C-rC.png"' onMouseOut='this.src="bonding/c4-C.png"' onclick='addToName(6); dataLayer.push({"event": "add.bonding", "event_value": "C", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Cl.png' onMouseOver='this.src="bonding/c4-Cl-rC.png"' onMouseOut='this.src="bonding/c4-Cl.png"' onclick='addToName(7); dataLayer.push({"event": "add.bonding", "event_value": "Cl", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-F.png' onMouseOver='this.src="bonding/c4-F-rC.png"' onMouseOut='this.src="bonding/c4-F.png"' onclick='addToName(8); dataLayer.push({"event": "add.bonding", "event_value": "F", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-H.png' onMouseOver='this.src="bonding/c4-H-rC.png"' onMouseOut='this.src="bonding/c4-H.png"' onclick='addToName(9); dataLayer.push({"event": "add.bonding", "event_value": "H", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-K.png' onMouseOver='this.src="bonding/c4-K-rC.png"' onMouseOut='this.src="bonding/c4-K.png"' onclick='addToName(10); dataLayer.push({"event": "add.bonding", "event_value": "K", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Na.png' onMouseOver='this.src="bonding/c4-Na-rC.png"' onMouseOut='this.src="bonding/c4-Na.png"' onclick='addToName(11); dataLayer.push({"event": "add.bonding", "event_value": "Na", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-O.png' onMouseOver='this.src="bonding/c4-O-rC.png"' onMouseOut='this.src="bonding/c4-O.png"' onclick='addToName(12); dataLayer.push({"event": "add.bonding", "event_value": "O", "event_id": "element"  });' width='100%'></td>
+					</tr>			
+					<tr height='55' id="tRow17">
+						<td colspan='12' class='message' id='thisMol'></td>
+					</tr>	
+					<tr height='55' id="tRow4">
+						<td class='single teampot' colspan='1'><div id='c18' class='drag clone'><img src='images/discs/blueSingle.png' width='100%'></div></td>
+						<td class='single teampot' colspan='1'><div id='c25' class='drag clone'><img src='images/discs/redSingle.png' width='100%'></div></td>
+						<td colspan='3' class='mark'><button onclick="resetDropTables(); dataLayer.push({'event': 'reset.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
+						<td colspan='3' class='mark'><button onclick="checkDropResult(); dataLayer.push({'event': 'check.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Check</button></td>
+						<td colspan='4' class='mark'><button onclick="showDiagram(); dataLayer.push({'event': 'help.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Periodic Table</button></td>
+					<tr height='55' id="tRow5">
+						<td colspan='2' class='mark'><button onclick="resetName(); dataLayer.push({'event': 'reset.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
+						<td colspan='2' class='mark'><button onclick="backSpace2(); dataLayer.push({'event': 'remove.element', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Back</button></td>
+						<td id='molFormula' class='message' colspan='6'></td>
+						<td colspan='2' class='mark' onclick="checkResult(); dataLayer.push({'event': 'check.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });"><button>Check</button></td>
+
+					</tr>	
+					<tr height='55' id="tRow6">
+						<td colspan='6'><img id='displayGIF' src='images/gifs/hydrogenchloride.gif' width='100%'></td>
+						<td colspan='6' class='message' id='molInfo'><b>Hydrogen chloride.</b> At room temperature, it is a colorless gas, which forms white fumes of hydrochloric acid upon contact with atmospheric humidity. Hydrogen chloride gas and hydrochloric acid are important in technology and industry. Hydrochloric acid, the aqueous solution of hydrogen chloride, is also commonly given the same formula as Hydrogen chloride.</td>
+					</tr>				
+					<tr height='55' id="tRow7">
+					</tr>
+					<tr height='55' id="tRow8">
+					</tr>
+					<tr height='55' id="tRow9">
+					</tr>
+					<tr height='55' id="tRow10">
+					</tr>
+					<tr height='55' id="tRow11">
+					</tr>
+					<tr height='55' id="tRow12">
+					</tr>
+					<tr height='55' id="tRow13">
+					</tr>
+					<tr height='55' id="tRow14">
+					</tr>
+					<tr height='55' id="tRow15">
+					</tr>
+					<tr height='55' id="tRow16">
+					</tr>
+					<tr height='55' id="tRow18">
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="scripts/jquiCustomMOL.js"></script>
+</html>
+	
