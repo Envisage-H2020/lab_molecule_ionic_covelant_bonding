@@ -206,6 +206,12 @@ redipsInit = function () {
 	rd.event.clicked = function () {
 		var itemID = rd.obj.id;
 	};
+
+	rd.event.deleted = function (e) {
+		var event_value  = rd.obj.id.substring(1,3)
+		console.log("Is this working?", e); // delete me :)
+		dataLayer.push({'event': 'remove.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
+	};
 };
 	
 // add onload event listener
