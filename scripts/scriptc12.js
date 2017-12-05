@@ -310,6 +310,7 @@ function checkResult(){
 }
 
 function doCont(){
+	dataLayer.push({'event': 'continue'});
 	document.getElementById('molInfo').innerHTML = molInfo;
 	BackResetTrue = 0;
 }
