@@ -8,11 +8,6 @@
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 		})(window,document,'script','dataLayer','GTM-T9GH2WG');</script>
 		<!-- End Google Tag Manager -->
-		<script>
-		  dataLayer = [];
-		  dataLayer.push({
-	    'event': 'launch', 'goedle': {'app_version': 'v4'}});
-		</script>
 		<link rel="stylesheet" href="styles/style5.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
 
@@ -24,14 +19,14 @@
 		<title>Molecule Construction v4</title>
 	</head>
 	<body>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push({
+	    'event': 'launch', 'goedle': {'app_version': 'v4'}});
+		</script>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9GH2WG"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<script>
-		  dataLayer = [];
-		  dataLayer.push({
-	    'event': 'start.lab', 'goedle': {'app_version': 'v4'}});
-		</script>
 		<div id="loadpage">
 			<p align="left" style="font-size: large;">
 				<img src="images/page-loader.gif"><br>
@@ -71,24 +66,24 @@
 									<option value='8'>Tetrafluoromethane</option>
 								</select>
 							</form>
-						<td colspan='3' class='mark'><button onclick="showDiagram(); dataLayer.push({'event': 'help.periodic_table' });">Periodic Table</button></td>
+						<td colspan='3' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.periodic_table' });">Periodic Table</button></td>
 					</tr>
 					<tr height='55' id="tRow2">
 						<td colspan='12' class='mark'>Each disk represents an electron. The color indicates to which atom each electron belongs to. Drag electrons from the selection below to the green positions on the grid. You can move electrons, use trash to remove them completely, or 'Reset' to clear the grid and start again.</td>
 					</tr>
 					<tr height='55' id="tRow3">
-						<td colspan='1'><img src='bonding/c4-2.png' onMouseOver='this.src="bonding/c4-2-rC.png"' onMouseOut='this.src="bonding/c4-2.png"' onclick='addToName(1); dataLayer.push({"event": "add.bonding", "event_value": "2", "event_id": "number"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-3.png' onMouseOver='this.src="bonding/c4-3-rC.png"' onMouseOut='this.src="bonding/c4-3.png"' onclick='addToName(2); dataLayer.push({"event": "add.bonding", "event_value": "3", "event_id": "number"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-4.png' onMouseOver='this.src="bonding/c4-4-rC.png"' onMouseOut='this.src="bonding/c4-4.png"' onclick='addToName(3); dataLayer.push({"event": "add.bonding", "event_value": "4", "event_id": "number"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-Br.png' onMouseOver='this.src="bonding/c4-Br-rC.png"' onMouseOut='this.src="bonding/c4-Br.png"' onclick='addToName(4); dataLayer.push({"event": "add.bonding", "event_value": "Br", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-Ca.png' onMouseOver='this.src="bonding/c4-Ca-rC.png"' onMouseOut='this.src="bonding/c4-Ca.png"' onclick='addToName(5); dataLayer.push({"event": "add.bonding", "event_value": "Ca", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-C.png' onMouseOver='this.src="bonding/c4-C-rC.png"' onMouseOut='this.src="bonding/c4-C.png"' onclick='addToName(6); dataLayer.push({"event": "add.bonding", "event_value": "C", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-Cl.png' onMouseOver='this.src="bonding/c4-Cl-rC.png"' onMouseOut='this.src="bonding/c4-Cl.png"' onclick='addToName(7); dataLayer.push({"event": "add.bonding", "event_value": "Cl", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-F.png' onMouseOver='this.src="bonding/c4-F-rC.png"' onMouseOut='this.src="bonding/c4-F.png"' onclick='addToName(8); dataLayer.push({"event": "add.bonding", "event_value": "F", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-H.png' onMouseOver='this.src="bonding/c4-H-rC.png"' onMouseOut='this.src="bonding/c4-H.png"' onclick='addToName(9); dataLayer.push({"event": "add.bonding", "event_value": "H", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-K.png' onMouseOver='this.src="bonding/c4-K-rC.png"' onMouseOut='this.src="bonding/c4-K.png"' onclick='addToName(10); dataLayer.push({"event": "add.bonding", "event_value": "K", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-Na.png' onMouseOver='this.src="bonding/c4-Na-rC.png"' onMouseOut='this.src="bonding/c4-Na.png"' onclick='addToName(11); dataLayer.push({"event": "add.bonding", "event_value": "Na", "event_id": "element"  });' width='100%'></td>
-						<td colspan='1'><img src='bonding/c4-O.png' onMouseOver='this.src="bonding/c4-O-rC.png"' onMouseOut='this.src="bonding/c4-O.png"' onclick='addToName(12); dataLayer.push({"event": "add.bonding", "event_value": "O", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-2.png' onMouseOver='this.src="bonding/c4-2-rC.png"' onMouseOut='this.src="bonding/c4-2.png"' onclick='addToName(1); window.dataLayer.push({"event": "add.bonding", "event_value": "2", "event_id": "number"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-3.png' onMouseOver='this.src="bonding/c4-3-rC.png"' onMouseOut='this.src="bonding/c4-3.png"' onclick='addToName(2); window.dataLayer.push({"event": "add.bonding", "event_value": "3", "event_id": "number"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-4.png' onMouseOver='this.src="bonding/c4-4-rC.png"' onMouseOut='this.src="bonding/c4-4.png"' onclick='addToName(3); window.dataLayer.push({"event": "add.bonding", "event_value": "4", "event_id": "number"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Br.png' onMouseOver='this.src="bonding/c4-Br-rC.png"' onMouseOut='this.src="bonding/c4-Br.png"' onclick='addToName(4); window.dataLayer.push({"event": "add.bonding", "event_value": "Br", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Ca.png' onMouseOver='this.src="bonding/c4-Ca-rC.png"' onMouseOut='this.src="bonding/c4-Ca.png"' onclick='addToName(5); window.dataLayer.push({"event": "add.bonding", "event_value": "Ca", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-C.png' onMouseOver='this.src="bonding/c4-C-rC.png"' onMouseOut='this.src="bonding/c4-C.png"' onclick='addToName(6); window.dataLayer.push({"event": "add.bonding", "event_value": "C", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Cl.png' onMouseOver='this.src="bonding/c4-Cl-rC.png"' onMouseOut='this.src="bonding/c4-Cl.png"' onclick='addToName(7); window.dataLayer.push({"event": "add.bonding", "event_value": "Cl", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-F.png' onMouseOver='this.src="bonding/c4-F-rC.png"' onMouseOut='this.src="bonding/c4-F.png"' onclick='addToName(8); window.dataLayer.push({"event": "add.bonding", "event_value": "F", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-H.png' onMouseOver='this.src="bonding/c4-H-rC.png"' onMouseOut='this.src="bonding/c4-H.png"' onclick='addToName(9); window.dataLayer.push({"event": "add.bonding", "event_value": "H", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-K.png' onMouseOver='this.src="bonding/c4-K-rC.png"' onMouseOut='this.src="bonding/c4-K.png"' onclick='addToName(10); window.dataLayer.push({"event": "add.bonding", "event_value": "K", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-Na.png' onMouseOver='this.src="bonding/c4-Na-rC.png"' onMouseOut='this.src="bonding/c4-Na.png"' onclick='addToName(11); window.dataLayer.push({"event": "add.bonding", "event_value": "Na", "event_id": "element"  });' width='100%'></td>
+						<td colspan='1'><img src='bonding/c4-O.png' onMouseOver='this.src="bonding/c4-O-rC.png"' onMouseOut='this.src="bonding/c4-O.png"' onclick='addToName(12); window.dataLayer.push({"event": "add.bonding", "event_value": "O", "event_id": "element"  });' width='100%'></td>
 					</tr>			
 					<tr height='55' id="tRow17">
 						<td colspan='12' class='message' id='thisMol'></td>
@@ -96,14 +91,14 @@
 					<tr height='55' id="tRow4">
 						<td class='single teampot' colspan='1'><div id='c18' class='drag clone'><img src='images/discs/blueSingle.png' width='100%'></div></td>
 						<td class='single teampot' colspan='1'><div id='c25' class='drag clone'><img src='images/discs/redSingle.png' width='100%'></div></td>
-						<td colspan='3' class='mark'><button onclick="resetDropTables(); dataLayer.push({'event': 'reset.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
-						<td colspan='3' class='mark'><button onclick="checkDropResult(); dataLayer.push({'event': 'check.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Check</button></td>
-						<td colspan='4' class='mark'><button onclick="showDiagram(); dataLayer.push({'event': 'help.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Periodic Table</button></td>
+						<td colspan='3' class='mark'><button onclick="resetDropTables(); window.dataLayer.push({'event': 'reset.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
+						<td colspan='3' class='mark'><button onclick="checkDropResult(); window.dataLayer.push({'event': 'check.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Check</button></td>
+						<td colspan='4' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Periodic Table</button></td>
 					<tr height='55' id="tRow5">
-						<td colspan='2' class='mark'><button onclick="resetName(); dataLayer.push({'event': 'reset.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
-						<td colspan='2' class='mark'><button onclick="backSpace2(); dataLayer.push({'event': 'remove.element', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Back</button></td>
+						<td colspan='2' class='mark'><button onclick="resetName(); window.dataLayer.push({'event': 'reset.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
+						<td colspan='2' class='mark'><button onclick="backSpace2(); window.dataLayer.push({'event': 'remove.element', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Back</button></td>
 						<td id='molFormula' class='message' colspan='6'></td>
-						<td colspan='2' class='mark' onclick="checkResult(); dataLayer.push({'event': 'check.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });"><button>Check</button></td>
+						<td colspan='2' class='mark' onclick="checkResult(); window.dataLayer.push({'event': 'check.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });"><button>Check</button></td>
 
 					</tr>	
 					<tr height='55' id="tRow6">

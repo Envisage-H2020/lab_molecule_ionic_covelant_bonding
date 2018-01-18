@@ -197,7 +197,7 @@ redipsInit = function () {
 		if (rd.obj.id.substring(1,3) == 25)
 			event_value = 'red'
 
-		dataLayer.push({'event': 'set.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
+		window.dataLayer.push({'event': 'set.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
 
 		document.getElementById('thisMol').innerHTML = molName;
 		//GetCellValues();	
@@ -210,7 +210,7 @@ redipsInit = function () {
 	rd.event.deleted = function (e) {
 		var event_value  = rd.obj.id.substring(1,3)
 		console.log("Is this working?", e); // delete me :)
-		dataLayer.push({'event': 'remove.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
+		window.dataLayer.push({'event': 'remove.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
 	};
 };
 	
@@ -298,11 +298,11 @@ function checkResult(){
 		var result = "Incorrect";
 		var trueAnswer = answerKeys[currentMol];
 		if(learnerAnswer === trueAnswer){
-			dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1  });
+			window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1  });
 			result = "That is correct. The formula for "+molName+" is "+learnerKey+".<br><br> Now please use the buttons below to indicate the type of bonding applicable for "+molName+"<br><br><button onclick='bondCheck(1)'>IONIC</button><br><button onclick='bondCheck(2)'>COVELANT (polar)</button><br><button onclick='bondCheck(3)'>COVELANT (non-polar)</button>";
 			document.getElementById('molInfo').innerHTML = result;
 		}else{
-			dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0  });
+			window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0  });
 			var showBad = "That is incorrect - press continue<br><button onclick='doCont()'>Continue</button>";
 			document.getElementById('molInfo').innerHTML = showBad;
 		}
@@ -310,7 +310,7 @@ function checkResult(){
 }
 
 function doCont(){
-	dataLayer.push({'event': 'continue'});
+	window.dataLayer.push({'event': 'continue'});
 	document.getElementById('molInfo').innerHTML = molInfo;
 	BackResetTrue = 0;
 }
@@ -330,10 +330,10 @@ function bondCheck(ind){
 	}	
 	var result = "";
 	if(ind === thisBondType){
-		dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1 });
+		window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1 });
 		result = "Yes, that is correct. The bonding for "+molName+" is "+thisBondInfo+".<br><br>The next step is to build the bonding of the "+molName+" molecule. Please press continue<br><br><button onclick='buildDropTables()'>Continue</button>";
 	}else{
-		dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0 });
+		window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0 });
 		result = "No, that is no correct. In fact the bonding for "+molName+" is "+thisBondInfo+".<br><br>The next step is to build the bonding of the "+molName+" molecule. Please press continue<br><br><button onclick='buildDropTables()'>Continue</button>";
 	}
 	document.getElementById('molInfo').innerHTML = result;
@@ -585,8 +585,8 @@ function bondSuccess(){
 }
 
 function returnToSelection(){
-	dataLayer.push({'event': 'finish.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
-	dataLayer.push({'event': 'restart.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
+	window.dataLayer.push({'event': 'finish.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
+	window.dataLayer.push({'event': 'restart.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
 
 	BackResetTrue = 0;
 	document.getElementById('molInfo').innerHTML = molDetail[currentMol];
