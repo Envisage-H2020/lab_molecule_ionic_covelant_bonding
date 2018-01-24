@@ -197,7 +197,8 @@ redipsInit = function () {
 		if (rd.obj.id.substring(1,3) == 25)
 			event_value = 'red'
 
-		window.dataLayer.push({'event': 'set.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
+		//window.dataLayer.push({'event': 'set.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
+		window.dataLayer.push({'event': 'set.electron', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] , 'event_value': event_value });
 
 		document.getElementById('thisMol').innerHTML = molName;
 		//GetCellValues();	
@@ -210,7 +211,8 @@ redipsInit = function () {
 	rd.event.deleted = function (e) {
 		var event_value  = rd.obj.id.substring(1,3)
 		console.log("Is this working?", e); // delete me :)
-		window.dataLayer.push({'event': 'remove.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
+		//window.dataLayer.push({'event': 'remove.electron', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': event_value });
+		window.dataLayer.push({'event': 'remove.electron', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] , 'event_value': event_value });
 	};
 };
 	
@@ -282,9 +284,10 @@ function resetName(){
 
 function changeMolecule(){
 	if(BackResetTrue === 0){
-		var atomObj = document.getElementById("moleculeSelect"); 
-		currentMol = parseInt(atomObj.options[atomObj.selectedIndex].value);
-		molName = atomObj.options[atomObj.selectedIndex].innerHTML;
+		var atomObj = document.getElementById("moleculeSelect");
+		//currentMol = parseInt(atomObj.options[atomObj.selectedIndex].value);
+		currentMol = parseInt(strategy_dict[strategy[current_molecule_id]]);
+		molName = new_strategy[current_molecule_id];
 		molInfo = molDetail[currentMol];
 		document.getElementById("displayGIF").src = molGIFs[currentMol].src;
 		document.getElementById('molInfo').innerHTML = molInfo;
@@ -298,11 +301,13 @@ function checkResult(){
 		var result = "Incorrect";
 		var trueAnswer = answerKeys[currentMol];
 		if(learnerAnswer === trueAnswer){
-			window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1  });
+			//window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1  });
+			window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] , 'event_value': 1  });
 			result = "That is correct. The formula for "+molName+" is "+learnerKey+".<br><br> Now please use the buttons below to indicate the type of bonding applicable for "+molName+"<br><br><button onclick='bondCheck(1)'>IONIC</button><br><button onclick='bondCheck(2)'>COVELANT (polar)</button><br><button onclick='bondCheck(3)'>COVELANT (non-polar)</button>";
 			document.getElementById('molInfo').innerHTML = result;
 		}else{
-			window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0  });
+			//window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0  });
+			window.dataLayer.push({'event': 'check.bond', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] , 'event_value': 0  });
 			var showBad = "That is incorrect - press continue<br><button onclick='doCont()'>Continue</button>";
 			document.getElementById('molInfo').innerHTML = showBad;
 		}
@@ -330,10 +335,12 @@ function bondCheck(ind){
 	}	
 	var result = "";
 	if(ind === thisBondType){
-		window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1 });
+		//window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 1 });
+		window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] , 'event_value': 1 });
 		result = "Yes, that is correct. The bonding for "+molName+" is "+thisBondInfo+".<br><br>The next step is to build the bonding of the "+molName+" molecule. Please press continue<br><br><button onclick='buildDropTables()'>Continue</button>";
 	}else{
-		window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0 });
+		//window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] , 'event_value': 0 });
+		window.dataLayer.push({'event': 'check.bond_type', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] , 'event_value': 0 });
 		result = "No, that is no correct. In fact the bonding for "+molName+" is "+thisBondInfo+".<br><br>The next step is to build the bonding of the "+molName+" molecule. Please press continue<br><br><button onclick='buildDropTables()'>Continue</button>";
 	}
 	document.getElementById('molInfo').innerHTML = result;
@@ -585,8 +592,11 @@ function bondSuccess(){
 }
 
 function returnToSelection(){
-	window.dataLayer.push({'event': 'finish.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
-	window.dataLayer.push({'event': 'restart.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
+	// window.dataLayer.push({'event': 'finish.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
+	// window.dataLayer.push({'event': 'restart.lab', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]});
+	current_molecule_id += 1;
+	window.dataLayer.push({'event': 'finish.lab', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]});
+	window.dataLayer.push({'event': 'restart.lab', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]});
 
 	BackResetTrue = 0;
 	document.getElementById('molInfo').innerHTML = molDetail[currentMol];
@@ -610,6 +620,8 @@ function returnToSelection(){
 	document.getElementById('tRow16').style.display = 'none';
 	document.getElementById('tRow17').style.display = 'none';
 	document.getElementById('tRow18').style.display = 'none';
+
+	load_data(current_molecule_id);
 }
 
 function showDiagram(){

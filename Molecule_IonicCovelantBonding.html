@@ -6,7 +6,7 @@
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-T9GH2WG');</script>
+		})(window,document,'script','dataLayer','GTM-N6TT3FK');</script>
 		<!-- End Google Tag Manager -->
 		<link rel="stylesheet" href="styles/style5.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
@@ -19,13 +19,15 @@
 		<title>Molecule Construction v4</title>
 	</head>
 	<body>
+		
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			window.dataLayer.push({
 	    'event': 'launch', 'goedle': {'app_version': 'v4'}});
 		</script>
+		 
         <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9GH2WG"
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6TT3FK"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div id="loadpage">
 			<p align="left" style="font-size: large;">
@@ -53,8 +55,14 @@
 					</colgroup>	
 					<tr height='55' id="tRow1">
 						<td colspan='6' class='mark'>Select a molecule from the list.<br>Use the buttons to create it's formula</td>
-						<td colspan='3' class='mark'>
+						<td colspan='4' id="molecule" class='mark'>
 							<form>
+								Strategy:
+								<input type="text" id="strategy_id" name="strategy_id" readonly><br>
+								Current molecule:
+								<input type="text" id="moleculeSelect" readonly>
+							</form>
+							<!-- <form>
 								<select id='moleculeSelect' name='moleculeSelect' onchange="changeMolecule(); dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">
 									<option value='1'>Hydrogen Chloride</option>
 									<option value='2'>Potassium Bromide</option>
@@ -65,9 +73,82 @@
 									<option value='7'>Sodium Chloride</option>
 									<option value='8'>Tetrafluoromethane</option>
 								</select>
-							</form>
+							</form> -->
+							
 						<td colspan='3' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.periodic_table' });">Periodic Table</button></td>
 					</tr>
+					<script>
+					var strategy= {};
+					var new_strategy = {};
+					var strategy_dict = {};
+					var current_molecule_id = 0;
+						$.ajax({
+							url: "http://api-staging.goedle.io/apps/1/strategy/",
+							type: "GET",
+							dataType: "json",
+							success: function(data){
+								strategy = data['config'];
+								id = data["id"];
+								for (i=0; i<strategy.length; i++){
+									if (strategy[i] == "HCl"){
+										new_strategy[i] = "Hydrogen Chloride";
+										strategy_dict.HCl = parseInt('1');
+									}
+									else if (strategy[i] == "H2O"){
+										new_strategy[i] = "Water";
+										strategy_dict.H2O = parseInt('3');
+									}
+									else if (strategy[i] == "KBr"){
+										new_strategy[i] = "Potassium Bromide";
+										strategy_dict.KBr = parseInt('2');
+									}
+									else if (strategy[i] == "NaF"){
+										new_strategy[i] = "Sodium Fluoride";
+										strategy_dict.NaF = parseInt('4');
+									}
+									else if (strategy[i] == "CH4"){
+										new_strategy[i] = "Methane";
+										strategy_dict.CH4 = parseInt('5');
+									}
+									else if (strategy[i] == "CaCl2"){
+										new_strategy[i] = "Calcium Chloride";
+										strategy_dict.CaCl2 = parseInt('6');
+									}
+									else if (strategy[i] == "NaCl"){
+										new_strategy[i] = "Sodium Chloride";
+										strategy_dict.NaCl = parseInt('7');
+									}
+									else if (strategy[i] == "CF4"){
+										new_strategy[i] = "Tetrafluoromethane";
+										strategy_dict.CF4 = parseInt('8');
+									}
+								}
+								load_data(current_molecule_id);
+								
+								//molecule_name = data['config'][0];
+								// document.getElementById("moleculeSelect").value = molecule_name;
+								
+							}
+						})
+						function load_data(current_molecule_id){
+								changeMolecule();
+								document.getElementById("strategy_id").value = id;
+
+								document.getElementById("moleculeSelect").value = new_strategy[current_molecule_id];
+								//dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });
+								dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]  });
+								// alert(new_strategy[0]);
+								// alert(strategy_dict['H2O']);
+								// alert(strategy_dict[strategy[current_molecule_id]]);
+							}
+						
+					
+					dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });
+					</script>
+					<script>
+					
+					
+					</script>
 					<tr height='55' id="tRow2">
 						<td colspan='12' class='mark'>Each disk represents an electron. The color indicates to which atom each electron belongs to. Drag electrons from the selection below to the green positions on the grid. You can move electrons, use trash to remove them completely, or 'Reset' to clear the grid and start again.</td>
 					</tr>
@@ -87,18 +168,19 @@
 					</tr>			
 					<tr height='55' id="tRow17">
 						<td colspan='12' class='message' id='thisMol'></td>
-					</tr>	
+					</tr>
+					<!-- "answerKeys[document.getElementById('moleculeSelect').value]" replaced by "answerKeys[strategy_dict[strategy[current_molecule_id]]]" -->
 					<tr height='55' id="tRow4">
 						<td class='single teampot' colspan='1'><div id='c18' class='drag clone'><img src='images/discs/blueSingle.png' width='100%'></div></td>
 						<td class='single teampot' colspan='1'><div id='c25' class='drag clone'><img src='images/discs/redSingle.png' width='100%'></div></td>
-						<td colspan='3' class='mark'><button onclick="resetDropTables(); window.dataLayer.push({'event': 'reset.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
-						<td colspan='3' class='mark'><button onclick="checkDropResult(); window.dataLayer.push({'event': 'check.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Check</button></td>
-						<td colspan='4' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.electrons', 'event_id': answerKeys[document.getElementById('moleculeSelect').value] });">Periodic Table</button></td>
+						<td colspan='3' class='mark'><button onclick="resetDropTables(); window.dataLayer.push({'event': 'reset.electrons', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]  });">Reset</button></td>
+						<td colspan='3' class='mark'><button onclick="checkDropResult(); window.dataLayer.push({'event': 'check.electrons', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] });">Check</button></td>
+						<td colspan='4' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.electrons', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]] });">Periodic Table</button></td>
 					<tr height='55' id="tRow5">
-						<td colspan='2' class='mark'><button onclick="resetName(); window.dataLayer.push({'event': 'reset.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Reset</button></td>
-						<td colspan='2' class='mark'><button onclick="backSpace2(); window.dataLayer.push({'event': 'remove.element', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">Back</button></td>
+						<td colspan='2' class='mark'><button onclick="resetName(); window.dataLayer.push({'event': 'reset.table', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]  });">Reset</button></td>
+						<td colspan='2' class='mark'><button onclick="backSpace2(); window.dataLayer.push({'event': 'remove.element', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]  });">Back</button></td>
 						<td id='molFormula' class='message' colspan='6'></td>
-						<td colspan='2' class='mark' onclick="checkResult(); window.dataLayer.push({'event': 'check.table', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });"><button>Check</button></td>
+						<td colspan='2' class='mark' onclick="checkResult(); window.dataLayer.push({'event': 'check.table', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]  });"><button>Check</button></td>
 
 					</tr>	
 					<tr height='55' id="tRow6">
