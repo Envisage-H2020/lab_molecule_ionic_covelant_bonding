@@ -6,7 +6,7 @@
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-N6TT3FK');</script>
+		})(window,document,'script','dataLayer','GTM-T9GH2WG');</script>
 		<!-- End Google Tag Manager -->
 		<link rel="stylesheet" href="styles/style5.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="scripts/jquery-1.11.0.min.js"></script>
@@ -19,26 +19,24 @@
 		<title>Molecule Construction v4</title>
 	</head>
 	<body>
-		
+
 		<script>
 			window.dataLayer = window.dataLayer || [];
-			window.dataLayer.push({
-	    'event': 'launch', 'goedle': {'app_version': 'v4'}});
+			window.dataLayer.push({'event': 'launch', 'goedle': {'app_version': 'v4-dca'}});
 		</script>
-		 
+
         <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N6TT3FK"
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9GH2WG"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div id="loadpage">
 			<p align="left" style="font-size: large;">
 				<img src="images/page-loader.gif"><br>
-
 				<B>Loading ... ... Please wait!</B>
 			</p>
 		</div>
 		<div id="drag">
 			<div id="topArea">
-				<table id='table1'>		
+				<table id='table1'>
 					<colgroup>
 						<col width="55"/>
 						<col width="55"/>
@@ -52,7 +50,7 @@
 						<col width="55"/>
 						<col width="55"/>
 						<col width="55"/>
-					</colgroup>	
+					</colgroup>
 					<tr height='55' id="tRow1">
 						<td colspan='6' class='mark'>Select a molecule from the list.<br>Use the buttons to create it's formula</td>
 						<td colspan='4' id="molecule" class='mark'>
@@ -62,26 +60,13 @@
 								Current molecule:
 								<input type="text" id="moleculeSelect" readonly>
 							</form>
-							<!-- <form>
-								<select id='moleculeSelect' name='moleculeSelect' onchange="changeMolecule(); dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });">
-									<option value='1'>Hydrogen Chloride</option>
-									<option value='2'>Potassium Bromide</option>
-									<option value='3'>Water</option>
-									<option value='4'>Sodium Fluoride</option>
-									<option value='5'>Methane</option>
-									<option value='6'>Calcium Chloride</option>
-									<option value='7'>Sodium Chloride</option>
-									<option value='8'>Tetrafluoromethane</option>
-								</select>
-							</form> -->
-							
 						<td colspan='3' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.periodic_table' });">Periodic Table</button></td>
 					</tr>
 					<script>
-					var strategy= {};
-					var new_strategy = {};
-					var strategy_dict = {};
-					var current_molecule_id = 0;
+						var strategy= {};
+						var new_strategy = {};
+						var strategy_dict = {};
+						var current_molecule_id = 0;
 						$.ajax({
 							url: "http://api-staging.goedle.io/apps/1/strategy/",
 							type: "GET",
@@ -124,30 +109,15 @@
 									}
 								}
 								load_data(current_molecule_id);
-								
-								//molecule_name = data['config'][0];
-								// document.getElementById("moleculeSelect").value = molecule_name;
-								
 							}
 						})
-						function load_data(current_molecule_id){
-								changeMolecule();
-								document.getElementById("strategy_id").value = id;
 
-								document.getElementById("moleculeSelect").value = new_strategy[current_molecule_id];
-								//dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });
-								dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]  });
-								// alert(new_strategy[0]);
-								// alert(strategy_dict['H2O']);
-								// alert(strategy_dict[strategy[current_molecule_id]]);
-							}
-						
-					
-					dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[document.getElementById('moleculeSelect').value]  });
-					</script>
-					<script>
-					
-					
+						function load_data(current_molecule_id){
+							changeMolecule();
+							document.getElementById("strategy_id").value = id;
+							document.getElementById("moleculeSelect").value = new_strategy[current_molecule_id];
+							dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]});
+						}
 					</script>
 					<tr height='55' id="tRow2">
 						<td colspan='12' class='mark'>Each disk represents an electron. The color indicates to which atom each electron belongs to. Drag electrons from the selection below to the green positions on the grid. You can move electrons, use trash to remove them completely, or 'Reset' to clear the grid and start again.</td>
@@ -165,7 +135,7 @@
 						<td colspan='1'><img src='bonding/c4-K.png' onMouseOver='this.src="bonding/c4-K-rC.png"' onMouseOut='this.src="bonding/c4-K.png"' onclick='addToName(10); window.dataLayer.push({"event": "add.bonding", "event_value": "K", "event_id": "element"  });' width='100%'></td>
 						<td colspan='1'><img src='bonding/c4-Na.png' onMouseOver='this.src="bonding/c4-Na-rC.png"' onMouseOut='this.src="bonding/c4-Na.png"' onclick='addToName(11); window.dataLayer.push({"event": "add.bonding", "event_value": "Na", "event_id": "element"  });' width='100%'></td>
 						<td colspan='1'><img src='bonding/c4-O.png' onMouseOver='this.src="bonding/c4-O-rC.png"' onMouseOut='this.src="bonding/c4-O.png"' onclick='addToName(12); window.dataLayer.push({"event": "add.bonding", "event_value": "O", "event_id": "element"  });' width='100%'></td>
-					</tr>			
+					</tr>
 					<tr height='55' id="tRow17">
 						<td colspan='12' class='message' id='thisMol'></td>
 					</tr>
@@ -182,11 +152,11 @@
 						<td id='molFormula' class='message' colspan='6'></td>
 						<td colspan='2' class='mark' onclick="checkResult(); window.dataLayer.push({'event': 'check.table', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]  });"><button>Check</button></td>
 
-					</tr>	
+					</tr>
 					<tr height='55' id="tRow6">
 						<td colspan='6'><img id='displayGIF' src='images/gifs/hydrogenchloride.gif' width='100%'></td>
 						<td colspan='6' class='message' id='molInfo'><b>Hydrogen chloride.</b> At room temperature, it is a colorless gas, which forms white fumes of hydrochloric acid upon contact with atmospheric humidity. Hydrogen chloride gas and hydrochloric acid are important in technology and industry. Hydrochloric acid, the aqueous solution of hydrogen chloride, is also commonly given the same formula as Hydrogen chloride.</td>
-					</tr>				
+					</tr>
 					<tr height='55' id="tRow7">
 					</tr>
 					<tr height='55' id="tRow8">
@@ -215,4 +185,3 @@
 	</body>
 	<script type="text/javascript" src="scripts/jquiCustomMOL.js"></script>
 </html>
-	
