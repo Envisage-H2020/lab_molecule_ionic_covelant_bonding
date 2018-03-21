@@ -52,73 +52,18 @@
 						<col width="55"/>
 					</colgroup>
 					<tr height='55' id="tRow1">
-						<td colspan='6' class='mark'>Select a molecule from the list.<br>Use the buttons to create it's formula</td>
-						<td colspan='4' id="molecule" class='mark'>
+						<td colspan='5' class='mark'>
+							Use the buttons to create it's formula
+						</td>
+						<td colspan='5' id="molecule" class='mark'>
 							<form>
 								Strategy:
 								<input type="text" id="strategy_id" name="strategy_id" readonly><br>
 								Current molecule:
 								<input type="text" id="moleculeSelect" readonly>
 							</form>
-						<td colspan='3' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.periodic_table' });">Periodic Table</button></td>
+						<td colspan='2' class='mark'><button onclick="showDiagram(); window.dataLayer.push({'event': 'help.periodic_table' });">Periodic Table</button></td>
 					</tr>
-					<script>
-						var strategy= {};
-						var new_strategy = {};
-						var strategy_dict = {};
-						var current_molecule_id = 0;
-						$.ajax({
-							url: "http://api-staging.goedle.io/apps/1/strategy/",
-							type: "GET",
-							dataType: "json",
-							success: function(data){
-								strategy = data['config'];
-								id = data["id"];
-								for (i=0; i<strategy.length; i++){
-									if (strategy[i] == "HCl"){
-										new_strategy[i] = "Hydrogen Chloride";
-										strategy_dict.HCl = parseInt('1');
-									}
-									else if (strategy[i] == "H2O"){
-										new_strategy[i] = "Water";
-										strategy_dict.H2O = parseInt('3');
-									}
-									else if (strategy[i] == "KBr"){
-										new_strategy[i] = "Potassium Bromide";
-										strategy_dict.KBr = parseInt('2');
-									}
-									else if (strategy[i] == "NaF"){
-										new_strategy[i] = "Sodium Fluoride";
-										strategy_dict.NaF = parseInt('4');
-									}
-									else if (strategy[i] == "CH4"){
-										new_strategy[i] = "Methane";
-										strategy_dict.CH4 = parseInt('5');
-									}
-									else if (strategy[i] == "CaCl2"){
-										new_strategy[i] = "Calcium Chloride";
-										strategy_dict.CaCl2 = parseInt('6');
-									}
-									else if (strategy[i] == "NaCl"){
-										new_strategy[i] = "Sodium Chloride";
-										strategy_dict.NaCl = parseInt('7');
-									}
-									else if (strategy[i] == "CF4"){
-										new_strategy[i] = "Tetrafluoromethane";
-										strategy_dict.CF4 = parseInt('8');
-									}
-								}
-								load_data(current_molecule_id);
-							}
-						})
-
-						function load_data(current_molecule_id){
-							changeMolecule();
-							document.getElementById("strategy_id").value = id;
-							document.getElementById("moleculeSelect").value = new_strategy[current_molecule_id];
-							dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]});
-						}
-					</script>
 					<tr height='55' id="tRow2">
 						<td colspan='12' class='mark'>Each disk represents an electron. The color indicates to which atom each electron belongs to. Drag electrons from the selection below to the green positions on the grid. You can move electrons, use trash to remove them completely, or 'Reset' to clear the grid and start again.</td>
 					</tr>
@@ -182,6 +127,64 @@
 				</table>
 			</div>
 		</div>
+
+		<script>
+			var strategy= {};
+			var new_strategy = {};
+			var strategy_dict = {};
+			var current_molecule_id = 0;
+			$.ajax({
+				url: "http://api-staging.goedle.io/apps/1/strategy/",
+				type: "GET",
+				dataType: "json",
+				success: function(data){
+					strategy = data['config'];
+					id = data["id"];
+					for (i=0; i<strategy.length; i++){
+						if (strategy[i] == "HCl"){
+							new_strategy[i] = "Hydrogen Chloride";
+							strategy_dict.HCl = parseInt('1');
+						}
+						else if (strategy[i] == "H2O"){
+							new_strategy[i] = "Water";
+							strategy_dict.H2O = parseInt('3');
+						}
+						else if (strategy[i] == "KBr"){
+							new_strategy[i] = "Potassium Bromide";
+							strategy_dict.KBr = parseInt('2');
+						}
+						else if (strategy[i] == "NaF"){
+							new_strategy[i] = "Sodium Fluoride";
+							strategy_dict.NaF = parseInt('4');
+						}
+						else if (strategy[i] == "CH4"){
+							new_strategy[i] = "Methane";
+							strategy_dict.CH4 = parseInt('5');
+						}
+						else if (strategy[i] == "CaCl2"){
+							new_strategy[i] = "Calcium Chloride";
+							strategy_dict.CaCl2 = parseInt('6');
+						}
+						else if (strategy[i] == "NaCl"){
+							new_strategy[i] = "Sodium Chloride";
+							strategy_dict.NaCl = parseInt('7');
+						}
+						else if (strategy[i] == "CF4"){
+							new_strategy[i] = "Tetrafluoromethane";
+							strategy_dict.CF4 = parseInt('8');
+						}
+					}
+					load_data(current_molecule_id);
+				}
+			})
+
+			function load_data(current_molecule_id){
+				changeMolecule();
+				document.getElementById("strategy_id").value = id;
+				document.getElementById("moleculeSelect").value = new_strategy[current_molecule_id];
+				dataLayer.push({'event': 'select.molecule', 'event_id': answerKeys[strategy_dict[strategy[current_molecule_id]]]});
+			}
+		</script>
+		<script type="text/javascript" src="scripts/jquiCustomMOL.js"></script>
 	</body>
-	<script type="text/javascript" src="scripts/jquiCustomMOL.js"></script>
 </html>
